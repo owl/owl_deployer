@@ -1,0 +1,11 @@
+{
+  "name": "owl/owl_deployer",
+  "description": "Deploy script for owl.",
+  "authors": [
+    {
+      "name": "sota1235",
+      "email": "sota1235@gmail.com"
+    }
+  ],
+  "require": {}
+}
