@@ -14,11 +14,11 @@ Deploy [owl](https://github.com/owl/owl) with [deployer](https://deployer.org/).
 
 ### Usage
 
-First, copy `.env.sample` and edit it.
+First, copy `config.sample.json` and edit it.
 
 ```shell
-cp .env.sample .env
-vi .env
+cp config.sample.json config.json
+vi config.json
 ```
 
 Next, exec behind command to deploy owl.
