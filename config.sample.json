@@ -1,8 +1,0 @@
-{
-  "server": {
-    "host": "deploy.host.name",
-    "user": "deploy user name",
-    "deploy_path": "/path/to/deploy/owl"
-  },
-  "branch": "branch name you want to deploy"
-}
