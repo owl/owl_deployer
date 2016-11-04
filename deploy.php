@@ -3,17 +3,20 @@
 require 'recipe/laravel.php';
 require __DIR__.'/vendor/autoload.php';
 
-use Noodlehaus\Config;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
- * Get config from .env
+ * CLI options
  */
-$config = new Config(__DIR__.'/config.json');
+option('host', null, InputOption::VALUE_OPTIONAL, 'Host name for dpeloy');
+option('user', null, InputOption::VALUE_OPTIONAL, 'Username on the deploy server');
+option('deploypath', null, InputOption::VALUE_OPTIONAL, 'Path on the deploy server.');
+option('tag', null, InputOption::VALUE_OPTIONAL, 'Target tag name.');
 
-$serverHost   = $config->get('server.host');
-$serverUser   = $config->get('server.user');
-$deployPath   = $config->get('server.deploy_path');
-$deployBranch = $config->get('branch');
+/**$serverHost = input()->getOption('host');
+$serverUser = input()->getOption('user');
+$deployPath = input()->getOption('deploypath');
+$deployTag  = input()->getOption('tag');*/
 
 /**
  * Config
@@ -41,5 +44,5 @@ server('prod', $serverHost, 22)
     ->user($serverUser)
     ->forwardAgent()
     ->stage('production')
-    ->env('branch', $deployBranch)
+    ->env('branch', $deployTag)
     ->env('deploy_path', $deployPath);
