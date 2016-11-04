@@ -12,6 +12,8 @@ Deploy [owl](https://github.com/owl/owl) with [deployer](https://deployer.org/).
 - PHP 5.4~
 - composer
 
+**You need to login deploy server with using ssh forward agent.**
+
 ### Usage
 
 First, copy `config.sample.yaml` and edit it.
