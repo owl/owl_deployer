@@ -9,5 +9,8 @@
   ],
   "require": {
     "deployer/deployer": "^3.3"
+  },
+  "scripts": {
+    "deploy": "dep deploy production -vvv"
   }
 }
