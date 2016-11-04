@@ -1,6 +1,19 @@
 <?php
 
 require 'recipe/laravel.php';
+require __DIR__.'/vendor/autoload.php';
+
+use Noodlehaus\Config;
+
+/**
+ * Get config from .env
+ */
+$config = new Config(__DIR__.'/config.json');
+
+$serverHost   = $config->get('server.host');
+$serverUser   = $config->get('server.user');
+$deployPath   = $config->get('server.deploy_path');
+$deployBranch = $config->get('branch');
 
 /**
  * Config
@@ -24,9 +37,9 @@ task('npm', function () {
 
 after('deploy', 'npm');
 
-server('prod', 'sample.server', 22)
-    ->user('sample')
+server('prod', $serverHost, 22)
+    ->user($serverUser)
     ->forwardAgent()
     ->stage('production')
-    ->env('branch', 'develop')
-    ->env('deploy_path', '/path/to/deploy');
+    ->env('branch', $deployBranch)
+    ->env('deploy_path', $deployPath);
