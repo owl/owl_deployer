@@ -9,7 +9,7 @@ Deploy [owl](https://github.com/owl/owl) with [deployer](https://deployer.org/).
 
 ### Requirement
 
-- PHP
+- PHP 5.4~
 - composer
 
 ### Usage
