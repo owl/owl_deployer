@@ -1,22 +1,8 @@
 <?php
 
 require 'recipe/laravel.php';
-require __DIR__.'/vendor/autoload.php';
 
-use Symfony\Component\Console\Input\InputOption;
-
-/**
- * CLI options
- */
-option('host', null, InputOption::VALUE_OPTIONAL, 'Host name for dpeloy');
-option('user', null, InputOption::VALUE_OPTIONAL, 'Username on the deploy server');
-option('deploypath', null, InputOption::VALUE_OPTIONAL, 'Path on the deploy server.');
-option('tag', null, InputOption::VALUE_OPTIONAL, 'Target tag name.');
-
-/**$serverHost = input()->getOption('host');
-$serverUser = input()->getOption('user');
-$deployPath = input()->getOption('deploypath');
-$deployTag  = input()->getOption('tag');*/
+serverList('config.yaml');
 
 /**
  * Config
@@ -39,10 +25,3 @@ task('npm', function () {
 });
 
 after('deploy', 'npm');
-
-server('prod', $serverHost, 22)
-    ->user($serverUser)
-    ->forwardAgent()
-    ->stage('production')
-    ->env('branch', $deployTag)
-    ->env('deploy_path', $deployPath);
