@@ -7,5 +7,7 @@
       "email": "sota1235@gmail.com"
     }
   ],
-  "require": {}
+  "require": {
+    "deployer/deployer": "^3.3"
+  }
 }
