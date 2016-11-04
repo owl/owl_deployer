@@ -1,7 +1,7 @@
 production:
   host: host.name
   user: user_name_on_deploy_server
-  forwardAgent:
+  forward_agent:
   stage: production
   branch: tag_number_of_owl
   deploy_path: /path/to/owl
